@@ -13,10 +13,6 @@ const getPhotosByTreeId = async (req, res) => {
       offset
     });
 
-    if (!rows.length) {
-      return res.status(404).json({ error: 'Nenhuma foto encontrada para esta árvore.' });
-    }
-
     return res.status(200).json({
       total: count,
       page,

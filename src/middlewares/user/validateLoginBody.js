@@ -6,8 +6,8 @@ const validateLoginBody = (req, res, next) => {
       .trim()
       .required()
       .messages({
-        "any.required": "O username é obrigatório",
-        "string.empty": "O username não pode estar vazio",
+        "any.required": "O nome de usuário é obrigatório",
+        "string.empty": "O nome de usuário não pode estar vazio",
       }),
     password: Joi.string()
       .required()

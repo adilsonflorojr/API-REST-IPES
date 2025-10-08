@@ -7,12 +7,6 @@ const updateUser = async (req, res) => {
 
     const updatableFields = ["full_name", "email", "username", "password"];
   
-    updatableFields.forEach((field) => {
-      if (req.body[field] !== undefined) {
-        
-        userToUpdate[field] = req.body[field];
-      }
-    });
 
       for (const field of updatableFields) {
       if (req.body[field] !== undefined) {

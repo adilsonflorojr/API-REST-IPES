@@ -7,11 +7,11 @@ const validateBlockBody = (req, res, next) => {
       .max(100)
       .required()
       .messages({
-        "any.required": "O campo block_reason é obrigatório",
-        "string.empty": "O campo block_reason não pode estar vazio",
-        "string.max": "O campo block_reason deve ter no máximo 100 caracteres",
+        "any.required": "O motivo do bloqueio é obrigatório",
+        "string.empty": "O motivo do bloqueio não pode estar vazio",
+        "string.max": "O motivo do bloqueio deve ter no máximo 100 caracteres",
         "string.pattern.base":
-          "O block_reason só pode conter letras, espaços, vírgula e pontos",
+          "O motivo do bloqueio só pode conter letras, espaços, vírgula e pontos",
       }),
   });
 

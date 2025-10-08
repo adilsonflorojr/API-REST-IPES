@@ -2,11 +2,7 @@ const getTreesByUserCity = (req, res) => {
   try {
     const trees = req.treesFiltered;
 
-    if (trees.length === 0) {
-      return res.status(404).json({
-        error: "Nenhuma árvore visível encontrada para este usuário.",
-      });
-    }
+    
     return res.status(200).json({
       total: req.treesTotal,
       page: req.pagination.page,

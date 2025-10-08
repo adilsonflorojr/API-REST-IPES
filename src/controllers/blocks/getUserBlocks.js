@@ -11,11 +11,6 @@ const getUserBlocks = async (req, res) => {
       offset,
       order: [["id", "ASC"]],
     });
-    if (!rows.length) {
-      return res
-        .status(404)
-        .json({ error: "Nenhum bloqueio encontrado para o usuário." });
-    }
 
     return res.status(200).json({
       total: count,

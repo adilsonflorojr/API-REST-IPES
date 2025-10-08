@@ -16,9 +16,7 @@ const { page, limit, offset } = req.pagination;
       order: [['id', 'ASC']] 
     });
 
-    if (!rows.length) {
-      return res.status(404).json({ error: 'Nenhum usuário encontrado' });
-    }
+   
 
     res.status(200).json({
      total: count,
