@@ -7,72 +7,72 @@ const validateTreeBody = (req, res, next) => {
       .length(2)
       .required()
       .messages({
-        "any.required": "O campo coordinates é obrigatório",
-        "array.base": "O campo coordinates deve ser um vetor",
-        "array.length": "O campo coordinates deve ter exatamente 2 números",
+        "any.required": "A coordenada é obrigatório",
+        "array.base": "A coordenada deve ser um vetor",
+        "array.length": "A coordenada deve ter exatamente 2 números",
       }),
     street: Joi.string()
-      .pattern(/^(?!\s)[A-Za-zÀ-ÿ\s.,]+$/)
+      .pattern(/^[^\s][A-Za-zÀ-ÿ\s]*$/)
       .required()
       .min(4)
       .max(50)
       .messages({
-        "any.required": "O campo street é obrigatório",
-        "string.empty": "O campo street não pode estar vazio",
+        "any.required": "O nome da rua é obrigatório",
+        "string.empty": "O nome da rua não pode estar vazio",
         "string.pattern.base":
-          "O campo street só pode conter letras, espaços (não no início), vírgulas e pontos.",
-        "string.max": "O campo street deve ter no máximo 50 caracteres",
-        "string.min": "O campo street deve ter no minimo 4 caracteres",
+          "O nome da rua só pode conter letras, espaços (não no início).",
+        "string.max": "O nome da rua deve ter no máximo 50 caracteres",
+        "string.min": "O nome da rua deve ter no minimo 4 caracteres",
       }),
     reference_point: Joi.string()
-      .pattern(/^(?!\s)[A-Za-zÀ-ÿ\s]+$/)
+      .pattern(/^(?!\s)[A-Za-zÀ-ÿ\s.,]+$/)
       .required()
       .max(50)
       .messages({
-        "any.required": "O campo reference_point é obrigatório",
-        "string.empty": "O campo reference_point não pode estar vazio",
+        "any.required": "O ponto de referência é obrigatório",
+        "string.empty": "O ponto de referência  não pode estar vazio",
         "string.pattern.base":
-          "O campo reference_point só pode conter letras, espaços (não no início), vírgulas e pontos.",
+          "O ponto de referência só pode conter letras, espaços (não no início), vírgulas e pontos.",
         "string.max":
-          "O campo reference_point deve ter no máximo 50 caracteres",
+          "O ponto de referência deve ter no máximo 50 caracteres",
       }),
     flower_color: Joi.string()
-      .pattern(/^(?!\s)[A-Za-zÀ-ÿ\s]+$/)
+      .pattern(/^[^\s][A-Za-zÀ-ÿ\s]*$/)
       .required()
       .max(25)
       .messages({
-        "any.required": "O campo flower_color é obrigatório",
-        "string.empty": "O campo flower_color não pode estar vazio",
+        "any.required": "A cor das flores é obrigatório",
+        "string.empty": "A cor das flores não pode estar vazio",
         "string.pattern.base":
-          "O campo flower_color só pode conter letras, espaços (não no início), vírgulas e pontos.",
-        "string.max": "O campo flower_color deve ter no máximo 25 caracteres",
+          "A cor das flores só pode conter letras, espaços (não no início).",
+        "string.max": "A cor das flores deve ter no máximo 25 caracteres",
       }),
     tree_size: Joi.string()
-      .pattern(/^(?!\s)[A-Za-zÀ-ÿ\s]+$/)
+     .pattern(/^[^\s][A-Za-zÀ-ÿ\s]*$/)
       .required()
       .max(15)
       .messages({
-        "any.required": "O campo tree_size é obrigatório",
-        "string.empty": "O campo tree_size não pode estar vazio",
+        "any.required": "O tamanho da árvore é obrigatório",
+        "string.empty": "O tamanho da árvore não pode estar vazio",
         "string.pattern.base":
-          "O campo tree_size só pode conter letras, espaços (não no início), vírgulas e pontos.",
-        "string.max": "O campo tree_size deve ter no máximo 15 caracteres",
+          "O tamanho da árvore só pode conter letras, espaços (não no início).",
+        "string.max": "O tamanho da árvore deve ter no máximo 15 caracteres",
       }),
     age: Joi.number().required().max(1500).messages({
-      "any.required": "O campo age é obrigatório",
-      "number.base": "O campo age deve ser um número",
-      "number.max": "O campo age deve ser até 1500 ",
+      "any.required": "A idade da árvore é obrigatório",
+      "number.base": "A idade da árvore deve ser um número",
+      "number.max": "A idade da árvore deve ser até 1500 ",
     }),
     comment: Joi.string()
       .max(60)
       .required()
       .pattern(/^(?!\s)[A-Za-zÀ-ÿ\s.,]+$/)
       .messages({
-        "any.required": "O campo comment é obrigatório",
-        "string.empty": "O campo comment não pode estar vazio",
+        "any.required": "O comentário é obrigatório",
+        "string.empty": "O comentário não pode estar vazio",
         "string.pattern.base":
-          "O campo comment só pode conter letras, espaços (não no início), vírgulas e pontos.",
-        "string.max": "O campo comment deve ter no máximo 60 caracteres",
+          "O comentário só pode conter letras, espaços (não no início), vírgulas e pontos.",
+        "string.max": "O comentário deve ter no máximo 60 caracteres",
       }),
   });
 

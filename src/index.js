@@ -5,6 +5,9 @@ const userRoutes = require('./routes/Authentication/userRoutes');
 const treeRoutes = require('./routes/Authentication/treeRoutes');
 const createInitialAdmin = require('./initialSetup/createInitialAdmin');
 
+const swagger = require('swagger-ui-express')
+const swaggerFile = require('../swagger_doc.json')
+
 const syncModels = require('./configs/syncModel');
 const app = express();
 
@@ -12,7 +15,7 @@ app.use(express.json());
 app.use('/qrcode', express.static(path.join(__dirname, 'qrcode')));
 app.use('/usuarios', userRoutes); 
 app.use('/ipes', treeRoutes);
-
+app.use('/swaggerDoc', swagger.serve, swagger.setup(swaggerFile))
 syncModels()
   .then(() => createInitialAdmin())
   .then(() => {

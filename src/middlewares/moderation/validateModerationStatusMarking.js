@@ -7,10 +7,10 @@ const validateModerationStatusMarking = (req, res, next) => {
       .max(10) 
       .required()
       .messages({
-        "any.required": "O campo 'status_marking' é obrigatório",
-        "string.empty": "O campo 'status_marking' não pode estar vazio",
-        "string.pattern.base": "O campo 'status_marking' só pode conter letras, espaços (não no início), vírgulas e pontos.",
-        "string.max": "O campo 'status_marking' só pode conter letras, espaços, vírgula e pontos",
+        "any.required": "O status é obrigatório",
+        "string.empty": "O status não pode estar vazio",
+        "string.pattern.base": "O status só pode conter letras, espaços (não no início), vírgulas e pontos.",
+        "string.max": "O status só pode conter letras, espaços, vírgula e pontos",
       }),
   })
   const { error, value } = schema.validate(req.body, {

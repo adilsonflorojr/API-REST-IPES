@@ -9,7 +9,7 @@ const validateUpdateUserBody = (req, res, next) => {
       .messages({
         "string.empty": "O nome completo não pode estar vazio",
         "string.pattern.base":
-          "O nome completo só pode conter letras, espaços (não no início), vírgulas e pontos.",
+          "O nome completo só pode conter letras, espaços (não no início)",
         "string.max": "O nome completo deve ter no máximo 50 caracteres",
         "string.min": "O nome completo deve ter no minimo 5 caracteres",
       }),
@@ -33,12 +33,12 @@ const validateUpdateUserBody = (req, res, next) => {
     }),
     city_name: Joi.string()
       .min(4)
-      .pattern(/^(?!\s)[A-Za-zÀ-ÿ\s]+$/)
+      .pattern(/^[^\s][A-Za-zÀ-ÿ\s]*$/)
       .messages({
         "string.min": "O nome da cidade deve ter no mínimo 4 caracteres",
         "string.empty": "O nome da cidade  não pode estar vazio",
         "string.pattern.base":
-          "O nome da cidade  não pode começar com espaço e só pode conter letras e espaços",
+          "O nome da cidade só pode conter letras, espaços (não no início).",
       }),
     state: Joi.string()
       .pattern(/^[A-Za-z]{2}$/)

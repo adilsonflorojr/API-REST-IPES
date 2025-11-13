@@ -35,8 +35,8 @@ const validateBlockBody = require("../../middlewares/block/validateBlockBody")
 const pagination = require("../../middlewares/pagination/pagination")
 
 router.get("/meus-bloqueios", authenticate, pagination, getUserBlocks); 
-router.post("/register", validateRegisterBody, checkUniqueUserFields, resolveCity, createUser);
-router.post("/login", validateLoginBody, checkUserExistsByUsername, verifyPassword, loginUser); 
+router.post("/cadastrar", validateRegisterBody, checkUniqueUserFields, resolveCity, createUser);
+router.post("/acessar", validateLoginBody, checkUserExistsByUsername, verifyPassword, loginUser); 
 router.get("/", authenticate, authorizeAdmin, pagination, getAllUsers);
 router.get("/:id", authenticate, authorizeAdmin, getUserById );
 router.patch("/:id",authenticate,validateUpdateUserBody,authorizeUpdateUser,preventUserChangingAdminStatus, checkUserExists,checkUniqueUserFieldsForUpdate, checkCityUpdateFields, resolveCity, updateUser );

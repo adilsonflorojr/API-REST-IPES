@@ -1,4 +1,3 @@
-
 ## 1. Relacionamentos 
 
 ### users - cities
@@ -48,31 +47,31 @@
 
 ### 2.1 Usuários (`/usuarios`)
 
-- `POST /usuarios/register`  
+- `POST /usuarios/cadastrar`  
   **Body:** full_name, email, username, password, city_id  
-  **Descrição:** Cadastrar um novo usuário  
-  **Permissão: **qualquer usuário (não autenticado).
+  **Descrição:** Cadastrar um novo usuário.   
+  **Permissão:** qualquer usuário (não autenticado).
 
-- `POST /usuarios/login`  
+- `POST /usuarios/acessar`  
   **Body:** username, password  
-  **Descrição:** Login do usuário para gerar um devido Token JWT para rotas restritas.
-  **Permissão: **qualquer usuário (não autenticado).  
+  **Descrição:** Login do usuário para gerar um devido Token JWT para rotas restritas. 
+  **Permissão:** qualquer usuário (não autenticado).  
 
 - `GET /usuarios/`  
-  **Query:** page, limit.  (Paginação)  
-  **Descrição:** Listar todos os usuários.     
+  **Query:** page, limit.  (Paginação)   
+  **Descrição:** Listar todos os usuários.       
   **Permissão:** Administrador.
 
 - `GET /usuarios/:id`  
   **Path:** id  
-  **Descrição:** Obter usuário pelo ID do usuário. 
+  **Descrição:** Obter usuário pelo ID do usuário.   
   **Permissão:** Administrador.
 
 - `PATCH /usuarios/:id`  
   **Path:** id  
   **Body:** campos para atualizar  
   **Descrição:** Atualizar usuário pelo ID do usuário. 
-  **Adicionais:** Podendo administrador transformar usuários comuns em administrador.
+  **Adicionais:** Podendo administrador transformar usuários comuns em administrador.     
   **Permissão:** Usuário próprio ou administrador.
 
 - `DELETE /usuarios/:id`  
@@ -271,4 +270,30 @@
 - `deleteTreeModerationById` -> Remove moderação
 - `getAllModerations` -> Lista todas as moderações
 
-
+## 5. Requisitos Funcionais
+-  Sistema de cadastro de usuários
+-  Sistema de login 
+-  Listar todos os usuários
+-  Alteração de dados de usuário
+-  Apagar informações de usuário 
+-  Obter informações de um usuário específico 
+-  Cadastro de uma árvore 
+-  Alterar informações de uma árvore 
+-  Apagar informações de uma árvore
+-  Obter todas as informações das árvores da cidade 
+-  Adicionar foto de uma árvore ipê
+-  Apagar foto de uma árvore ipê 
+-  Listar fotos de uma árvore ipê 
+-  Gerar QR Code de uma árvore
+-  Visualizar detalhes de uma árvore
+-  Filtrar árvores por uma característica específica 
+-  Bloquear usuário 
+-  Desbloquear usuário
+-  Listar meus bloqueios   
+-  Consultar bloqueio específico  
+-  Listar moderações de uma árvore  
+-  Listar moderações de uma cidade  
+-  Alterar status de moderação 
+-  Excluir moderação  
+-  Cadastrar uma moderação de uma árvore
+-  Obter todas as moderações existentes

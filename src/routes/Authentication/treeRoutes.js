@@ -22,12 +22,12 @@ const getPhotosByTreeId = require('../../controllers/photos/getPhotosByTreeId').
 const getAllModerations = require('../../controllers/moderations/getAllModerations').getAllModerations;
 
 //Middlewares
+const uploads = require('../../middlewares/upload').upload;
 const authenticate = require('../../middlewares/auth/authenticate');
 const authorizeSameCityByTreeId = require('../../middlewares/tree/authorizeSameCityByTreeId');
 const authorizeAdmin = require('../../middlewares/auth/authorizeAdmin');
 const authorizeTreeOwnerOrAdminPatch = require('../../middlewares/tree/authorizeTreeOwnerOrAdminPatch');
 const authorizeTreeOwnerOrAdminDelete = require('../../middlewares/tree/authorizeTreeOwnerOrAdminDelete');
-const uploads = require('../../middlewares/upload')
 const filterBlockedContent = require('../../middlewares/filter/filterBlockedContent');
 const loadUserBlocks = require('../../middlewares/block/loadUserBlocks');
 const requireUserCity = require('../../middlewares/city/requireUserCity');
@@ -56,7 +56,7 @@ const pagination = require("../../middlewares/pagination/pagination")
 router.get('/', authenticate, requireUserCity, loadUserBlocks, pagination, loadAccessibleTrees , filterBlockedUsers,  getTreesByUserCity);
 router.post('/', authenticate, validateTreeBody, checkAdminCityRestriction, createTree); 
 router.post('/filtrar', authenticate,  prepareTreeFilters, filterBuilder, loadUserBlocks, excludeBlockedUsersFromFilter, pagination, filterTrees);
-router.get('/erro', authenticate, authorizeAdmin, pagination, getAllModerations)
+router.get('/moderacao', authenticate, authorizeAdmin, pagination, getAllModerations)
 router.post('/foto', authenticate, uploads.single('photo'), verifyTreeBelongsToUser,  sendPhoto ) 
 router.get('/:id', authenticate, loadTree, authorizeSameCityByTreeId,  incrementTreeViewCount, filterBlockedContent, getTreeById ); 
 router.patch('/:id', authenticate, validateUpdateTreeBody, loadTree, authorizeTreeOwnerOrAdminPatch, updateTree); 

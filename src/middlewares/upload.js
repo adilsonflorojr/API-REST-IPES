@@ -1,15 +1,19 @@
 const multer = require('multer');
 const path = require('path');
 
+const getDestination = (req, file, cb) => {
+  const uploadPath = path.join(__dirname, '..', 'tree_uploads');
+  cb(null, uploadPath);
+};
+
+const getFilename = (req, file, cb) => {
+  const nameTreeImg = Date.now() + '__' + file.originalname;
+  cb(null, nameTreeImg);
+};
+
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, '..', 'tree_uploads');
-    cb(null, uploadPath); 
-  },
-  filename: (req, file, cb) => {
-    const nameTreeImg = Date.now() + '__' + file.originalname;
-    cb(null, nameTreeImg);
-  }
+  destination: getDestination,
+  filename: getFilename
 });
 
 const fileFilter = (req, file, cb) => {
@@ -35,4 +39,4 @@ const upload = multer({
   limits: { fileSize: 5 * 1024 * 1024 } 
 });
 
-module.exports = upload;
+module.exports = { upload, storage, fileFilter , getFilename, getDestination};

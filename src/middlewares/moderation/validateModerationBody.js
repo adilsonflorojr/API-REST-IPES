@@ -7,10 +7,10 @@ const validateModerationBody = (req, res, next) => {
       .max(40)
       .required()
       .messages({
-        "any.required": "O campo 'error_comment' é obrigatório",
-        "string.empty": "O campo 'error_comment'  não pode estar vazio",
-        "string.pattern.base":"O campo 'error_comment' só pode conter letras, espaços (não no início), vírgulas e pontos.",
-        "string.max":"O campo 'error_comment'  deve ter no máximo 40 caracteres",
+        "any.required": "O comentário é obrigatório",
+        "string.empty": "O comentário  não pode estar vazio",
+        "string.pattern.base":"O comentário só pode conter letras, espaços (não no início), vírgulas e pontos.",
+        "string.max":"O comentário deve ter no máximo 40 caracteres",
       }),
   });
 

@@ -8,12 +8,12 @@ const validateRegisterBody = (req, res, next) => {
       .required()
       .max(50)
       .messages({
-        "any.required": "O campo nome completo é obrigatório",
-        "string.empty": "O campo nome completo não pode estar vazio",
+        "any.required": "O nome completo é obrigatório",
+        "string.empty": "O nome completo não pode estar vazio",
         "string.pattern.base":
-          "O campo nome completo só pode conter letras, espaços (não no início), vírgulas e pontos.",
-        "string.max": "O campo nome completo deve ter no máximo 50 caracteres",
-        "string.min": "O campo nome completo deve ter no minimo 5 caracteres",
+          "O nome completo só pode conter letras, espaços (não no início).",
+        "string.max": "O nome completo deve ter no máximo 50 caracteres",
+        "string.min": "O nome completo deve ter no minimo 5 caracteres",
       }),
 
     email: Joi.string().email().required().messages({
@@ -50,7 +50,7 @@ const validateRegisterBody = (req, res, next) => {
         "any.required": "O nome da cidade é obrigatório",
         "string.empty": "O nome da cidade não pode estar vazio",
         "string.pattern.base":
-          "O nome da cidade só pode conter letras, espaços (não no início), vírgulas e pontos.",
+          "O nome da cidade só pode conter letras, espaços (não no início).",
       }),
 
     state: Joi.string()
